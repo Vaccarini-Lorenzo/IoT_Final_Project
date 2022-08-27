@@ -1,0 +1,101 @@
+[
+    {
+        "id": "598d7c4f2516861f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "10aa91abac7b5c6b",
+        "type": "mqtt in",
+        "z": "598d7c4f2516861f",
+        "name": "",
+        "topic": "ESP8266/test",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4ea804433406fc90",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 590,
+        "y": 320,
+        "wires": [
+            [
+                "9bf9cfd2687dc290"
+            ]
+        ]
+    },
+    {
+        "id": "9bf9cfd2687dc290",
+        "type": "exec",
+        "z": "598d7c4f2516861f",
+        "command": "xrandr",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 890,
+        "y": 320,
+        "wires": [
+            [
+                "60f5b31fe3dd23c2"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "60f5b31fe3dd23c2",
+        "type": "debug",
+        "z": "598d7c4f2516861f",
+        "name": "Out",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4ea804433406fc90",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "https://test.mosquitto.org",
+        "port": "1884",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

@@ -4,7 +4,7 @@
 WiFiClient wiFiClient;
 PubSubClient mqttClient(wiFiClient);
 const char* ssid     = "";         // The SSID (name) of the Wi-Fi network you want to connect to
-const char* password = "";
+const char* password = "";         // Thr Wi-Fi newtwork password
 const char* broker = "test.mosquitto.org";
 const char* topic = "ESP8266/test";
 const int port = 1883;

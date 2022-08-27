@@ -3,6 +3,7 @@
 #include "MPUHeader.h"
 #include "MQTTHeader.h"
 
+char* screenID = "ScreenID";    // Your screenID (xrandr -q)
 
 void setup() {
   Serial.begin(9600);
@@ -16,7 +17,7 @@ void setup() {
   setNominalRoll();
   delay(100);
   Serial.println("Init Okay...");
-  delay(2000);
+  delay(1000);
 
 }
 
@@ -24,22 +25,26 @@ void loop() {
   if (!mqttClient.connected()) {
     mqttConnection();
   }
-  
+
   readStatus();
-  mqttClient.publish(topic, "TEST");
-  
+
   if (dataReady == 0x01) {
     readGyroZ();
     if (moved()){
+      char command[45];
+      strcpy(command, "-- output ");
+      strcat(command, screenID);
       Serial.println(roll);
       if (isHorizontal){
-        mqttClient.publish(topic, "Horizontal");
+        strcat(command, " --rotate right");
+        mqttClient.publish(topic, command);
       } else {
-        mqttClient.publish(topic, "Vertical");
+        strcat(command, " --rotate left");
+        mqttClient.publish(topic, command);
       }
     }
   }
-  
+
   delay(1000);
   mqttClient.loop();
 
