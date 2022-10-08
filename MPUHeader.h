@@ -9,7 +9,7 @@ const uint8_t sda = D7;
 const uint16_t gyroScaleFactor = 131;
 
 // Sample Rate = Gyroscope Output Rate / (1 + SMPLRT_DIV)
-// Gyroscope Output Rate = 8kHz (DLPF disabled)
+// Gyroscope Output Rate = 1kHz (DLPF enabled)
 const uint8_t SMPLRT_DIV   =  0x19;
 
 const uint8_t CONFIG = 0x1A;
@@ -108,6 +108,7 @@ void setNominalRoll(){
   nominalRoll = roll;
 }
 
+// Return true if the roll has reached a certain treshold
 bool moved(){
   if (isHorizontal) {
     if (roll > nominalRoll + 80) {
