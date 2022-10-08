@@ -1,6 +1,5 @@
 ---
-author:
-- Lorenzo Maria Vaccarini
+author: Lorenzo Maria Vaccarini
 title: External Monitor Pose Detection
 ---
 
